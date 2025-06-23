@@ -30,6 +30,11 @@ export default function Navbar() {
                 Viaggi
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to="/viaggi/contatti" className="nav-link">
+                Contact list page (TMP fino a che non ho link da pagina viaggi)
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
