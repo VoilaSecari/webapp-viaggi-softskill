@@ -1,4 +1,4 @@
-const travels = [
+export const travels = [
   {
     id: 1,
     destination: "Parigi, Francia",
