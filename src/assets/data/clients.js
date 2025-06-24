@@ -240,3 +240,5 @@ const clients = [
     fiscalCode: "CRSVNC93H22G274A",
   },
 ];
+
+export default clients;
