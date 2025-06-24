@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/viaggi">
           <Route path="" element={<TravelListPage />} />
           <Route path=":id" element={<TravelDetailPage />} />
-          <Route path=":id/partecipanti" element={<ClientDetailPage />} />
+          <Route path=":id/partecipanti/:partecipanteId" element={<ClientDetailPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
