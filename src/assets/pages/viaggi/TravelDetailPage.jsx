@@ -1,12 +1,15 @@
 import { travels } from "../../data/travels";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import clients from "../../data/clients";
-
+import clients from "../../data/clients.js";
+import SearchFilter from "../../components/SearchFilter.jsx";
+import { useState } from "react";
 
 export default function TravelDetailPage() {
   const { id } = useParams();
   const travel = travels.find((t) => t.id === Number(id));
+
+  const [filteredList, setFilteredList] = useState(clients);
 
   if (!travel) {
     return <p>Viaggio non trovato</p>;
@@ -31,50 +34,52 @@ export default function TravelDetailPage() {
           </NavLink>
         </div>
       </div>
-
-            {
-              clients &&
-              <>
-                <h2 className="text-center mt-4 mb-1">
-                    Lista dei partecipanti
-                </h2>
-                <table className="table table-striped table-bordered table-hover" id="tableList">
-                    <thead>
-                        <tr>
-                            <th scope="col w-100" style={{width: "100%"}}>
-                                Name
-                            </th>
-                            <th scope="col">
-                                
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      {
-                        clients.map((client, index) => {
-                          return (
-                            <tr key={client.id}>
-                                <td>
-                                  {client.surname} {client.name}
-                                </td>
-                                <td>
-                                    <div className="text-nowrap">
-                                        <a href={`tel:${client.phone}`} className="btn btn-primary me-1">
-                                          Chiama subito
-                                        </a>
-                                        <a href={`/viaggi/${id}/partecipanti/${client.id}`} className="btn btn-secondary">
-                                          Visualizza dettagli
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                          )
-                        })
-                      }
-                    </tbody>
-                </table>
-              </>
-            }
+      <SearchFilter setFilteredList={setFilteredList} />
+      {filteredList && (
+        <>
+          <h2 className="text-center mt-4 mb-1">Lista dei partecipanti</h2>
+          <table
+            className="table table-striped table-bordered table-hover"
+            id="tableList"
+          >
+            <thead>
+              <tr>
+                <th scope="col w-100" style={{ width: "100%" }}>
+                  Name
+                </th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredList.map((client) => {
+                return (
+                  <tr key={client.id}>
+                    <td>
+                      {client.surname} {client.name}
+                    </td>
+                    <td>
+                      <div className="text-nowrap">
+                        <a
+                          href={`tel:${client.phone}`}
+                          className="btn btn-primary me-1"
+                        >
+                          Chiama subito
+                        </a>
+                        <a
+                          href={`/viaggi/${id}/partecipanti/${client.id}`}
+                          className="btn btn-secondary"
+                        >
+                          Visualizza dettagli
+                        </a>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </>
+      )}
     </div>
   );
 }

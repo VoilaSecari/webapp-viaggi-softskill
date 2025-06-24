@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { clients } from "../data/clients.js";
+import clients from "../data/clients.js";
 
-export default function SearchFilter() {
+export default function SearchFilter({ setFilteredList }) {
   const [query, setQuery] = useState("");
 
   const handleChange = (e) => {
@@ -13,14 +13,13 @@ export default function SearchFilter() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(
+    setFilteredList(
       clients.filter((client) =>
         (client.name.toLowerCase() + client.surname.toLowerCase()).includes(
           query.split(" ").join("").toLowerCase()
         )
       )
     );
-    /* setFilteredList() */
   };
 
   return (
