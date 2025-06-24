@@ -1,4 +1,5 @@
 import { clients } from "../data/clients";
+
 export default function ClientDetailPage () {
     return (
         <>
