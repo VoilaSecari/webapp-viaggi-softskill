@@ -25,7 +25,7 @@ export default function SearchFilter({ setFilteredList }) {
   return (
     <div className="container">
       <form className="row" onSubmit={handleSubmit}>
-        <div className="col-4">
+        <div className="col-md-4">
           <div className="input-group mb-3">
             <input
               type="text"
