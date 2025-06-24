@@ -26,7 +26,7 @@ export default function TravelForm({ travelList, setTravelList }) {
     setForm(formInitialData);
   };
   return (
-    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div className="modal-dialog modal-xl modal-dialog-centered">
       <div className="modal-content">
         <div className="modal-header">
           <h2 className="modal-title fs-5">Aggiungi un nuovo viaggio</h2>

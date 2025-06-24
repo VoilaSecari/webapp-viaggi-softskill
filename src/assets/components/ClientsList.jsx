@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchFilter from "../components/SearchFilter.jsx";
+import AddClientForm from "../components/AddClientForm";
 import { useParams } from "react-router-dom";
 
 export default function ClientsList({ clients }) {
@@ -55,6 +56,7 @@ export default function ClientsList({ clients }) {
           </table>
         </>
       )}
+      <AddClientForm clients={clients} setFilteredList={setFilteredList} />
     </>
   );
 }
