@@ -8,6 +8,14 @@ export default function ClientsList({ clients }) {
   const [filteredList, setFilteredList] = useState(clients);
   return (
     <>
+
+      <div className="d-flex align-items-center justify-content-between">
+        <h2 className="text-center my-4 ">Lista dei partecipanti</h2>
+
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClientModal">
+          Aggiungi partecipante
+        </button>
+      </div>
       <div>
         <SearchFilter setFilteredList={setFilteredList} />
       </div>
@@ -56,7 +64,22 @@ export default function ClientsList({ clients }) {
           </table>
         </>
       )}
-      <AddClientForm clients={clients} setFilteredList={setFilteredList} />
+
+      <div className="modal fade" id="addClientModal" tabindex="-1" aria-labelledby="addClientModalLabel" aria-hidden="true">
+        <div className="modal-dialog modal-xl modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h2 class="modal-title fs-5" id="addClientModalLabel">
+                Aggiungi un nuovo partecipante al viaggio
+              </h2>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <AddClientForm clients={clients} setFilteredList={setFilteredList} />
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

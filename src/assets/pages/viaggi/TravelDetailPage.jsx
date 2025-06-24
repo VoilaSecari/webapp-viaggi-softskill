@@ -22,9 +22,6 @@ export default function TravelDetailPage() {
 
       <TravelCard travel={travel} />
 
-      <div>
-        <h2 className="text-center my-4 ">Lista dei partecipanti</h2>
-      </div>
       <ClientsList clients={clients} />
     </div>
   );

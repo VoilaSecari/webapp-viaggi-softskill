@@ -34,9 +34,6 @@ export default function AddClientForm ({ clients, setFilteredList }) {
 
     return (
         <>
-            <h3 className="mt-5">
-                Aggiungi un partecipante
-            </h3>
             <form className="row g-3" onSubmit={handleSubmit}>
 
                 <div className="col-4 mb-3">
@@ -129,8 +126,10 @@ export default function AddClientForm ({ clients, setFilteredList }) {
 
                         type="submit" 
                         className="btn btn-primary"
+
+                        data-bs-dismiss="modal"
                     >
-                        Aggiungi
+                        Aggiungi partecipante
                     </button>
                 </div>
 
