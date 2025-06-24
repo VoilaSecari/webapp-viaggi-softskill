@@ -1,11 +1,12 @@
-import { clients } from "../data/clients";
+import clients from "../data/clients";
 export default function ClientDetailPage () {
+    console.log("ClientDetailPage", clients)
     return (
         <>
             <div className="container">
                 <h3><strong>Dettaglio partecipante:</strong></h3>
             </div>
-            <div class="card" style="width: 18rem;">
+            <div class="card" style={{width: "18rem"}}>
                 {clients.map((client) => {
                     <div class="card-body" key={client.id}>
                         <h5 class="card-title">{client.name}{client.surname}</h5>

@@ -26,7 +26,7 @@ export default function TravelListPage() {
                     <td>{travel.endDate}</td>
                     <td>{travel.coordinator}</td>
                     <td>
-                      <NavLink to=":id" className="nav-item">
+                      <NavLink to={`/viaggi/${travel.id}`} className="nav-item">
                         Dettagli
                       </NavLink>
                     </td>
