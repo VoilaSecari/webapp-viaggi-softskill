@@ -1,18 +1,17 @@
 import { travels } from "../../data/travels.js";
 import { NavLink } from "react-router-dom";
-import TravelDetailPage from "./TravelDetailPage.jsx";
 
 export default function TravelListPage() {
   return (
     <div className="container">
-      <h1 className="mt-4">Lista dei viaggi in corso</h1>
+      <h1 className="my-4">Lista dei viaggi in corso</h1>
       <section>
-        <table className="table">
+        <table className="table table-striped table-bordered">
           <thead>
             <tr>
               <th scope="col">Destinazione</th>
-              <th scope="col">Inizio Viaggio</th>
-              <th scope="col">Fine Viaggio</th>
+              <th scope="col">Data Inizio Viaggio</th>
+              <th scope="col">Data Fine Viaggio</th>
               <th scope="col">Coordinatore</th>
               <th scope="col"></th>
             </tr>
@@ -28,7 +27,7 @@ export default function TravelListPage() {
                     <td>{travel.coordinator}</td>
                     <td>
                       <NavLink to={`/viaggi/${travel.id}`} className="nav-item">
-                        Dettagli
+                        Dettagli del viaggio
                       </NavLink>
                     </td>
                   </tr>
