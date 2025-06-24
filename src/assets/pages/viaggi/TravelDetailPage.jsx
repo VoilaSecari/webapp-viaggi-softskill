@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import clients from "../../data/clients.js";
 import SearchFilter from "../../components/SearchFilter.jsx";
 import { useState } from "react";
+import AddClientForm from "../../components/AddClientForm"
 
 export default function TravelDetailPage() {
   const { id } = useParams();
@@ -35,7 +36,7 @@ export default function TravelDetailPage() {
         </div>
       </div>
       <SearchFilter setFilteredList={setFilteredList} />
-      {filteredList && (
+      {filteredList.length > 0 ? 
         <>
           <h2 className="text-center mt-4 mb-1">Lista dei partecipanti</h2>
           <table
@@ -79,7 +80,19 @@ export default function TravelDetailPage() {
             </tbody>
           </table>
         </>
-      )}
+        :
+        <p>
+          La ricerca non ha dato nessun risultato
+        </p>
+      }
+
+
+      <AddClientForm
+        clients={clients}
+        setFilteredList={setFilteredList}
+      />
+
+
     </div>
   );
 }
