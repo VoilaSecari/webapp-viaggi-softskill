@@ -7,6 +7,7 @@ import { travels } from "../../data/travels";
 // Componenti
 import ClientsList from "../../components/ClientsList.jsx";
 import TravelCard from "../../components/TravelCard.jsx";
+import AddClientForm from "../../components/AddClientForm";
 
 export default function TravelDetailPage() {
   const { id } = useParams();
@@ -26,6 +27,7 @@ export default function TravelDetailPage() {
         <h2 className="text-center my-4 ">Lista dei partecipanti</h2>
       </div>
       <ClientsList clients={clients} />
+      <AddClientForm clients={clients} setFilteredList={setFilteredList} />
     </div>
   );
 }
