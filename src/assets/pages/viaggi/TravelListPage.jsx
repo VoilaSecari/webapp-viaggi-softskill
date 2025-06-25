@@ -35,6 +35,7 @@ export default function TravelListPage() {
                 <th scope="col">Fine Viaggio</th>
                 <th scope="col">Coordinatore</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
