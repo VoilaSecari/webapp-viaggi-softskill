@@ -54,6 +54,14 @@ export default function TravelListPage() {
                           Dettagli
                         </NavLink>
                       </td>
+                      <td className="text-center">
+                        <button className="btn btn-secondary btn-sm me-2">
+                          Modifica
+                        </button>
+                        <button className="btn btn-danger btn-sm">
+                          Elimina
+                        </button>
+                      </td>
                     </tr>
                   </>
                 );
