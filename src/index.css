@@ -1,22 +1,712 @@
-.container-page h1{
-    font-size: 55px;
-   text-align: center;
-   color: rgb(245, 88, 88);
-   padding-bottom: 20px;
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #202b2b;
+  background: #fbfaf7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  --ink: #202b2b;
+  --muted: #74807d;
+  --paper: #fbfaf7;
+  --green: #164e46;
+  --green-dark: #103c36;
+  --lime: #d7ed9f;
+  --line: #e6e9e3;
 }
-.row{
-    width: 100%;
-    padding: 10px 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+
+* {
+  box-sizing: border-box;
 }
-.col-3{
-    padding: 12px;
-    border: 1px solid lightgray;
-    border-radius: 10px;
-    margin: 10px 5px;
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
 }
-.card-image img{
-    width: 100%;
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-navbar {
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  min-height: 78px;
+  padding: 0;
+  border-bottom: 1px solid rgba(32, 43, 43, 0.07);
+  background: rgba(251, 250, 247, 0.96);
+  backdrop-filter: blur(14px);
+}
+
+.site-navbar__inner {
+  min-height: 78px;
+}
+
+.site-navbar .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 11px 11px 11px 3px;
+  background: var(--green);
+  color: white;
+  font-size: 17px;
+  letter-spacing: 0;
+}
+
+.brand-period {
+  color: #8daf54;
+}
+
+.site-navbar__links {
+  align-items: center;
+  justify-content: flex-end;
+  gap: 38px;
+}
+
+.site-navbar .navbar-nav {
+  gap: 28px;
+}
+
+.site-navbar .nav-link {
+  position: relative;
+  padding: 28px 0;
+  color: #687370;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link.active {
+  color: var(--green);
+}
+
+.site-navbar .nav-link.active::after {
+  position: absolute;
+  right: 0;
+  bottom: 17px;
+  left: 0;
+  height: 2px;
+  background: #91b95b;
+  content: "";
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 650;
+  transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  border-color: var(--green);
+  background: var(--green);
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  border-color: var(--green-dark);
+  background: var(--green-dark);
+  color: #fff;
+}
+
+.navbar-cta {
+  padding: 11px 16px;
+  font-size: 13px;
+}
+
+.navbar-cta span {
+  margin-left: 8px;
+  color: var(--lime);
+}
+
+.home-hero {
+  position: relative;
+  display: flex;
+  min-height: 510px;
+  align-items: center;
+  overflow: hidden;
+  margin: 24px auto 0;
+  border-radius: 18px;
+  background: #173c37;
+  color: white;
+}
+
+.home-hero__image {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(90deg, rgba(14, 43, 39, 0.91) 0%, rgba(14, 43, 39, 0.73) 43%, rgba(14, 43, 39, 0.08) 100%), url("/img/reykjavik.jpg");
+  background-position: center, center 48%;
+  background-size: cover;
+  transform: scale(1.01);
+}
+
+.home-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 740px;
+  padding: 72px 8.5%;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 13px;
+  color: #719148;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-hero .eyebrow {
+  color: var(--lime);
+}
+
+.home-hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 68px);
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+
+.home-hero__content p {
+  max-width: 430px;
+  margin: 22px 0 30px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.home-hero .btn {
+  padding: 14px 19px;
+  border-color: var(--lime);
+  background: var(--lime);
+  color: #213528;
+  font-size: 14px;
+}
+
+.home-hero .btn:hover {
+  border-color: #e3f6b6;
+  background: #e3f6b6;
+}
+
+.home-hero .btn span {
+  margin-left: 16px;
+}
+
+.home-hero__note {
+  position: absolute;
+  right: 7%;
+  bottom: 38px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.home-hero__note-mark {
+  color: var(--lime);
+  font-size: 28px;
+}
+
+.destination-section,
+.page-shell {
+  width: min(1120px, calc(100% - 48px));
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.destination-section {
+  padding: 76px 0 90px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.section-heading .eyebrow,
+.page-shell .eyebrow {
+  margin-bottom: 9px;
+}
+
+.section-heading h2,
+.participants-heading h2 {
+  margin: 0;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.text-link:hover,
+.table-link:hover {
+  color: #779c46;
+}
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px 22px;
+}
+
+.destination-card {
+  overflow: hidden;
+  border: 1px solid #eeefea;
+  border-radius: 12px;
+  background: #fff;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(32, 43, 43, 0.09);
+}
+
+.destination-card__image {
+  position: relative;
+  height: 198px;
+  overflow: hidden;
+  background: #e9eee7;
+}
+
+.destination-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.destination-card:hover .destination-card__image img {
+  transform: scale(1.045);
+}
+
+.destination-card__number {
+  position: absolute;
+  right: 13px;
+  bottom: 12px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: rgba(20, 42, 37, 0.58);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  backdrop-filter: blur(6px);
+}
+
+.destination-card__body {
+  padding: 17px 18px 19px;
+}
+
+.destination-card__body h3 {
+  display: inline;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.destination-card__country {
+  margin-left: 8px;
+  color: #84908c;
+  font-size: 12px;
+}
+
+.destination-card__body p {
+  margin: 10px 0 0;
+  color: #737e7a;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.page-shell {
+  min-height: calc(100vh - 78px);
+  padding-top: 55px;
+  padding-bottom: 80px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 650;
+  letter-spacing: -0.05em;
+}
+
+.page-intro {
+  max-width: 520px;
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.travel-list-page > .row {
+  margin-bottom: 33px;
+}
+
+.travel-list-page__action .btn {
+  padding: 13px 18px;
+}
+
+.table-panel {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(37, 49, 45, 0.035);
+}
+
+.table-panel .table {
+  min-width: 650px;
+  margin: 0;
+}
+
+.table-panel .table > :not(caption) > * > * {
+  padding: 17px 20px;
+  border-bottom-color: #edf0eb;
+}
+
+.table-panel thead th,
+#tableList thead th {
+  background: #f5f7f2;
+  color: #68746f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.table-panel tbody td,
+#tableList tbody td {
+  color: #394542;
+  font-size: 13px;
+}
+
+.table-link {
+  color: var(--green);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.table-link span {
+  margin-left: 5px;
+}
+
+.travel-detail-page > .page-title {
+  margin-bottom: 23px;
+}
+
+.travel-summary {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(37, 49, 45, 0.035);
+}
+
+.travel-summary h2 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+
+.travel-summary__details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 38px;
+  margin-top: 26px;
+}
+
+.travel-summary__details div {
+  display: grid;
+  gap: 6px;
+}
+
+.travel-summary__details span {
+  color: #84908c;
+  font-size: 11px;
+}
+
+.travel-summary__details strong {
+  color: #34413d;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.travel-summary__back {
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+.participants-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 50px 0 20px;
+}
+
+.add-client-panel {
+  margin-top: 30px;
+  padding: 26px 28px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(37, 49, 45, 0.035);
+}
+
+.add-client-panel__heading {
+  margin-bottom: 20px;
+}
+
+.add-client-panel__heading .eyebrow {
+  margin-bottom: 7px;
+}
+
+.add-client-panel__heading h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+}
+
+#tableList {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+  vertical-align: middle;
+}
+
+#tableList > :not(caption) > * > * {
+  padding: 15px 18px;
+  border-bottom-color: #edf0eb;
+}
+
+#tableList tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+#tableList .btn {
+  padding: 8px 11px;
+  font-size: 12px;
+}
+
+.form-control {
+  min-height: 44px;
+  border-color: #dfe5df;
+  border-radius: 7px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.form-control:focus {
+  border-color: #8eae72;
+  box-shadow: 0 0 0 3px rgba(142, 174, 114, 0.16);
+}
+
+.form-label {
+  margin-bottom: 7px;
+  color: #485650;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.input-group .form-control {
+  border-radius: 7px 0 0 7px;
+}
+
+.input-group .btn {
+  border-radius: 0 7px 7px 0;
+}
+
+.modal-content {
+  overflow: hidden;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 25px 80px rgba(20, 38, 34, 0.18);
+}
+
+.modal-header {
+  padding: 20px 25px;
+  border-bottom-color: var(--line);
+}
+
+.modal-body {
+  padding: 25px !important;
+}
+
+@media (max-width: 767.98px) {
+  .site-navbar__inner {
+    min-height: 68px;
+  }
+
+  .site-navbar__links {
+    align-items: flex-start;
+    gap: 12px;
+    padding: 5px 0 18px;
+  }
+
+  .site-navbar .navbar-nav {
+    gap: 0;
+  }
+
+  .site-navbar .nav-link {
+    padding: 10px 0;
+  }
+
+  .site-navbar .nav-link.active::after {
+    display: none;
+  }
+
+  .navbar-cta {
+    align-self: flex-start;
+  }
+
+  .home-hero {
+    min-height: 480px;
+    margin: 14px 12px 0;
+    border-radius: 13px;
+  }
+
+  .home-hero__image {
+    background-image: linear-gradient(90deg, rgba(14, 43, 39, 0.88), rgba(14, 43, 39, 0.42)), url("/img/reykjavik.jpg");
+    background-position: center, 60% center;
+  }
+
+  .home-hero__content {
+    padding: 55px 28px;
+  }
+
+  .home-hero__note {
+    right: 25px;
+    bottom: 22px;
+  }
+
+  .destination-section,
+  .page-shell {
+    width: min(100% - 32px, 600px);
+  }
+
+  .destination-section {
+    padding: 55px 0 65px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .section-heading > .text-link {
+    margin-top: 25px;
+    white-space: nowrap;
+  }
+
+  .destination-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .destination-card__image {
+    height: 155px;
+  }
+
+  .destination-card__body {
+    padding: 14px;
+  }
+
+  .destination-card__body h3 {
+    display: block;
+    font-size: 16px;
+  }
+
+  .destination-card__country {
+    display: block;
+    margin: 3px 0 0;
+  }
+
+  .travel-list-page__action {
+    margin-top: 20px;
+    text-align: left !important;
+  }
+
+  .travel-summary {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 23px;
+  }
+
+  .add-client-panel {
+    padding: 21px 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-heading {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .section-heading > .text-link {
+    margin-top: 0;
+  }
+
+  .destination-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-card__image {
+    height: 205px;
+  }
+
+  .travel-summary__details {
+    gap: 18px 25px;
+  }
+
+  #tableList .text-nowrap {
+    display: grid;
+    gap: 7px;
+    white-space: normal !important;
+  }
 }

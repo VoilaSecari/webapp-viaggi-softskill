@@ -29,6 +29,8 @@ export default function SearchFilter({ setFilteredList }) {
           <input
             type="text"
             className="form-control"
+            aria-label="Cerca partecipante per nome o cognome"
+            placeholder="Cerca per nome o cognome..."
             value={query}
             name="search"
             onChange={handleChange}

@@ -19,16 +19,16 @@ export default function ClientDetailPage() {
         <div className="d-flex justify-content-center align-items-center flex-column">
           <div className="card col-4  my-4 p-4">
             <div className="card-body">
-              <h5 className="card-title">
+              <h5 className="card-title">Name:
                 {partecipante.name}
                 {partecipante.surname}
               </h5>
               <h6 className="card-subtitle mb-2 text-body-secondary">
-                Email: {partecipante.mail}
+                Email:{partecipante.mail}
               </h6>
-              <p className="card-phone">Phone: {partecipante.phone}</p>
+              <p className="card-phone">Phone:{partecipante.phone}</p>
               <p className="card-code">
-                Fiscal Code: {partecipante.fiscalCode}
+                Fiscal Code:{partecipante.fiscalCode}
               </p>
             </div>
           </div>

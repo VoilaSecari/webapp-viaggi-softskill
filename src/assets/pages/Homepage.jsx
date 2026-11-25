@@ -1,67 +1,106 @@
+import { NavLink } from "react-router-dom";
 
+const destinations = [
+  {
+    name: "Barcellona",
+    country: "Spagna",
+    image: "/img/barcellona.jpg",
+    description: "Architettura iconica, mare e un’energia tutta mediterranea.",
+  },
+  {
+    name: "Il Cairo",
+    country: "Egitto",
+    image: "/img/Il Cairo.jpg",
+    description: "Un viaggio tra millenni di storia e la vivacità del Nilo.",
+  },
+  {
+    name: "New York",
+    country: "Stati Uniti",
+    image: "/img/New York.jpg",
+    description: "Una metropoli senza pause, quartiere dopo quartiere.",
+  },
+  {
+    name: "Parigi",
+    country: "Francia",
+    image: "/img/parigi-2.jpg",
+    description: "Arte, cucina e passeggiate lungo la Senna.",
+  },
+  {
+    name: "Reykjavík",
+    country: "Islanda",
+    image: "/img/reykjavik.jpg",
+    description: "Paesaggi nordici, sorgenti calde e cieli sorprendenti.",
+  },
+  {
+    name: "Tokyo",
+    country: "Giappone",
+    image: "/img/tokyo.jpg",
+    description: "Tradizioni senza tempo e il ritmo di una città futuristica.",
+  },
+];
 
 export default function HomePage() {
   return (
-    <>
-      <div className="container-page">
-        <h1 className="mt-4">WebApp Viaggi</h1>
-      </div>
-      <div className="row">
-        <div className="col-3">
-          <div className="card-image">
-            <img src="./img/barcellona.jpg" alt="barcellona" />
-          </div>
-          <div className="card-body">
-            <h3>Barcellona, Spagna</h3>
-            <p><strong>Descrizione: <br></br></strong>Barcellona, capoluogo della Catalogna, è una città spagnola vivace e cosmopolita, situata sulla costa nord-orientale del paese, vicino ai Pirenei e al confine con la Francia. È la seconda città più grande della Spagna, dopo Madrid, e un importante centro industriale, finanziario e culturale. Barcellona è rinomata per la sua architettura modernista, in particolare le opere di Antoni Gaudí, per le sue spiagge, la vivace vita notturna e la sua atmosfera unica che fonde tradizione e modernità. </p>
-          </div>
+    <main>
+      <section className="home-hero">
+        <div className="home-hero__image" aria-hidden="true" />
+        <div className="home-hero__content">
+          <span className="eyebrow">Il mondo, da vicino</span>
+          <h1>Il prossimo viaggio<br />inizia qui.</h1>
+          <p>
+            Idee, itinerari e persone: tutto quello che serve per partire
+            insieme e vivere qualcosa di nuovo.
+          </p>
+          <NavLink to="/viaggi" className="btn btn-primary btn-lg">
+            Scopri i viaggi <span aria-hidden="true">→</span>
+          </NavLink>
         </div>
-        <div className="col-3">
-          <div className="card-image">
-            <img src="./img/Il Cairo.jpg" alt="Il Cairo" />
-          </div>
-          <div className="card-body">
-            <h3>Il Cairo, Egitto</h3>
-            <p><strong>Descrizione: <br></br></strong>Il Cairo è la capitale dell'Egitto e una delle città più grandi e importanti del mondo, situata sul fiume Nilo. È un centro politico, amministrativo, culturale e turistico, famoso per la sua ricca storia, i monumenti antichi e la vibrante vita moderna. </p>
-          </div>
+        <div className="home-hero__note">
+          <span className="home-hero__note-mark" aria-hidden="true">✳</span>
+          <span>Nuove mete,<br />storie da vivere</span>
         </div>
-        <div className="col-3">
-          <div className="card-image">
-            <img src="./img/New York.jpg" alt="New York" />
+      </section>
+
+      <section className="destination-section">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">Lasciati ispirare</span>
+            <h2>Destinazioni da vivere</h2>
           </div>
-          <div className="card-body">
-            <h3>New York, U.S.A</h3>
-            <p><strong>Descrizione: <br></br></strong>New York è una metropoli globale, conosciuta come la "Grande Mela", e uno dei principali centri finanziari, commerciali e culturali del mondo. Situata sulla costa orientale degli Stati Uniti, alla foce del fiume Hudson, è composta da cinque distretti: Manhattan, Bronx, Queens, Brooklyn e Staten Island. New York è famosa per i suoi iconici grattacieli, musei, teatri, vivace vita notturna e multiculturalismo. </p>
-          </div>
+          <NavLink to="/viaggi" className="text-link">
+            Tutti i viaggi <span aria-hidden="true">→</span>
+          </NavLink>
         </div>
-        <div className="col-3">
-          <div className="card-image">
-            <img src="./img/parigi-2.jpg" alt="Parigi" />
-          </div>
-          <div className="card-body">
-            <h3>Parigi, Francia</h3>
-            <p><strong>Descrizione: <br></br></strong>Parigi, capitale della Francia, è una metropoli cosmopolita rinomata per la sua storia, arte, moda e gastronomia. Situata sul fiume Senna, la città è un importante centro culturale ed economico, con una ricca offerta di attrazioni, musei, teatri e università. </p>
-          </div>
+
+        <div className="destination-grid">
+          {destinations.map((destination, index) => (
+            <article className="destination-card" key={destination.name}>
+              <div className="destination-card__image">
+                <img
+                  src={destination.image}
+                  alt={destination.name}
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="destination-card__number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+              <div className="destination-card__body">
+                <div>
+                  <h3>{destination.name}</h3>
+                  <span className="destination-card__country">
+                    {destination.country}
+                  </span>
+                </div>
+                <p>{destination.description}</p>
+              </div>
+            </article>
+          ))}
         </div>
-        <div className="col-3">
-          <div className="card-image">
-            <img src="./img/reykjavik.jpg" alt="Reykjavik" />
-          </div>
-          <div className="card-body">
-            <h3>Reykjavik, Islanda</h3>
-            <p><strong>Descrizione: <br></br></strong>Reykjavík è la capitale e la città più grande dell'Islanda, situata nella parte sud-occidentale del paese, sulla costa dell'Oceano Atlantico. È nota per essere la capitale più settentrionale del mondo, ed è un centro politico, culturale ed economico per l'isola. La città, con i suoi circa 140.000 abitanti, offre un mix affascinante di natura, modernità, cultura, storia e paesaggi mozzafiato. </p>
-          </div>
-        </div>
-        <div className="col-3">
-          <div className="card-image">
-            <img src="./img/tokyo.jpg" alt="Tokyo" />
-          </div>
-          <div className="card-body">
-            <h3>Tokyo, Giappone</h3>
-            <p><strong>Descrizione: <br></br></strong>Tokyo, capitale del Giappone, è una metropoli dinamica e multiforme, rinomata per la sua fusione unica di tradizione e modernità. Offre una vasta gamma di esperienze, dai quartieri iconici come Shinjuku e Shibuya, ai tranquilli giardini imperiali e ai templi antichi. Tokyo è anche un centro globale per la gastronomia, la moda e la tecnologia, con attrazioni per tutti i gusti. </p>
-          </div>
-        </div>
-      </div>
-    </>
+      </section>
+    </main>
   );
 }

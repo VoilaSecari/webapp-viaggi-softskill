@@ -33,13 +33,14 @@ export default function AddClientForm ({ clients, setFilteredList }) {
     };
 
     return (
-        <>
-            <h3 className="mt-5">
-                Aggiungi un partecipante
-            </h3>
+        <section className="add-client-panel">
+            <div className="add-client-panel__heading">
+                <span className="eyebrow">Nuovo nel gruppo</span>
+                <h2>Aggiungi un partecipante</h2>
+            </div>
             <form className="row g-3" onSubmit={handleSubmit}>
 
-                <div className="col-4 mb-3">
+                <div className="col-12 col-md-4 mb-3">
                     <label htmlFor="name" className="form-label">
                         Nome
                     </label>
@@ -55,7 +56,7 @@ export default function AddClientForm ({ clients, setFilteredList }) {
                     />
                 </div>
 
-                <div className="col-4 mb-3">
+                <div className="col-12 col-md-4 mb-3">
                     <label htmlFor="surname" className="form-label">
                         Cognome
                     </label>
@@ -72,7 +73,7 @@ export default function AddClientForm ({ clients, setFilteredList }) {
                 </div>
                 
                 
-                <div className="col-4 mb-3">
+                <div className="col-12 col-md-4 mb-3">
                     <label htmlFor="mail" className="form-label">
                         Mail
                     </label>
@@ -89,7 +90,7 @@ export default function AddClientForm ({ clients, setFilteredList }) {
                 </div>
 
 
-                <div className="col-6 mb-3">
+                <div className="col-12 col-md-6 mb-3">
                     <label htmlFor="phone" className="form-label">
                         Telefono
                     </label>
@@ -106,7 +107,7 @@ export default function AddClientForm ({ clients, setFilteredList }) {
                 </div>
 
 
-                <div className="col-6 mb-3">
+                <div className="col-12 col-md-6 mb-3">
                     <label htmlFor="fiscalCode" className="form-label">
                         Codice Fiscale
                     </label>
@@ -135,6 +136,6 @@ export default function AddClientForm ({ clients, setFilteredList }) {
                 </div>
 
             </form>
-        </>
+        </section>
     )   
 }

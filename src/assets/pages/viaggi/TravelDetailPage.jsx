@@ -13,19 +13,23 @@ export default function TravelDetailPage() {
   const travel = travels.find((t) => t.id === Number(id));
 
   if (!travel) {
-    return <p>Viaggio non trovato</p>;
+    return <p className="container page-shell">Viaggio non trovato</p>;
   }
 
   return (
-    <div className="container">
-      <h3 className="text-center mt-4">Dettagli del viaggio</h3>
+    <main className="container page-shell travel-detail-page">
+      <span className="eyebrow">Il tuo itinerario</span>
+      <h1 className="page-title">Dettagli del viaggio</h1>
 
       <TravelCard travel={travel} />
 
-      <div>
-        <h2 className="text-center my-4 ">Lista dei partecipanti</h2>
+      <div className="participants-heading">
+        <div>
+          <span className="eyebrow">Il gruppo</span>
+          <h2>Partecipanti</h2>
+        </div>
       </div>
       <ClientsList clients={clients} />
-    </div>
+    </main>
   );
 }

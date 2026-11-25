@@ -1,4 +1,4 @@
-const coordinators = [
+export const coordinators = [
   {
     id: 1,
     name: "Alberto",

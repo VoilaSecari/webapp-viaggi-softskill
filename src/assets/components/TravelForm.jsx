@@ -9,7 +9,7 @@ const formInitialData = {
   coordinators: "",
 };
 
-export default function TravelForm({ travelList, setTravelList }) {
+export default function TravelForm({ setTravelList }) {
   const [form, setForm] = useState(formInitialData);
 
   const handleChange = (e) => {

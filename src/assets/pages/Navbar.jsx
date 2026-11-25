@@ -2,10 +2,11 @@ import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <nav className="navbar navbar-expand-md bg-body-tertiary">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-md site-navbar">
+      <div className="container site-navbar__inner">
         <NavLink to="/" className="navbar-brand">
-          BOOROAD
+          <span className="brand-mark" aria-hidden="true">B</span>
+          <span>BOOROAD<span className="brand-period">.</span></span>
         </NavLink>
         <button
           className="navbar-toggler"
@@ -18,19 +19,18 @@ export default function Navbar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink to="/" className="nav-link">
-                HomePage
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink to="/viaggi" className="nav-link">
-                Viaggi
-              </NavLink>
-            </li>
-          </ul>
+        <div className="collapse navbar-collapse site-navbar__links" id="navbarNav">
+          <div className="navbar-nav">
+            <NavLink to="/" end className="nav-link">
+              Home
+            </NavLink>
+            <NavLink to="/viaggi" className="nav-link">
+              Viaggi
+            </NavLink>
+          </div>
+          <NavLink to="/viaggi" className="btn btn-primary navbar-cta">
+            Pianifica un viaggio <span aria-hidden="true">↗</span>
+          </NavLink>
         </div>
       </div>
     </nav>
