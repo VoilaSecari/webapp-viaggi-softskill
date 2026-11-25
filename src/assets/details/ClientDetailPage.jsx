@@ -16,6 +16,10 @@ export default function ClientDetailPage() {
     <>
       <div className="container">
         <h3 className="text-center my-3">Dettaglio partecipante:</h3>
+        <div className="text-center">
+          <button className="btn btn-secondary btn-sm me-3">Modifica</button>
+          <button className="btn btn-danger btn-sm">Elimina</button>
+        </div>
         <div className="d-flex justify-content-center align-items-center flex-column">
           <div className="card col-4  my-4 p-4">
             <div className="card-body">

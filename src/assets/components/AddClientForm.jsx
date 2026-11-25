@@ -33,11 +33,10 @@ export default function AddClientForm ({ clients, setFilteredList }) {
     };
 
     return (
-        <section className="add-client-panel">
-            <div className="add-client-panel__heading">
-                <span className="eyebrow">Nuovo nel gruppo</span>
-                <h2>Aggiungi un partecipante</h2>
-            </div>
+        <>
+            <h3 className="mt-5">
+                Aggiungi un partecipante
+            </h3>
             <form className="row g-3" onSubmit={handleSubmit}>
 
                 <div className="col-12 col-md-4 mb-3">
@@ -130,12 +129,14 @@ export default function AddClientForm ({ clients, setFilteredList }) {
 
                         type="submit" 
                         className="btn btn-primary"
+
+                        data-bs-dismiss="modal"
                     >
-                        Aggiungi
+                        Aggiungi partecipante
                     </button>
                 </div>
 
             </form>
-        </section>
+        </>
     )   
 }

@@ -39,6 +39,7 @@ export default function TravelListPage() {
                 <th scope="col">Rientro</th>
                 <th scope="col">Coordinatore</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -63,6 +64,14 @@ export default function TravelListPage() {
                       >
                         Dettagli <span aria-hidden="true">→</span>
                       </NavLink>
+                    </td>
+                    <td className="text-center">
+                      <button className="btn btn-secondary btn-sm me-2">
+                        Modifica
+                      </button>
+                      <button className="btn btn-danger btn-sm">
+                        Elimina
+                      </button>
                     </td>
                   </tr>
                 );
